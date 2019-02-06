@@ -5,39 +5,65 @@
 
 // Global variables
 let language = '';
+let topic = '';
 
 // Variables for HTML elements
 const langColumns = document.getElementById('language-columns');
 const langOptions = document.querySelectorAll('.lang-option');
+const topicColumns = document.getElementById('topic-columns');
 const topicOptions = document.querySelectorAll('.topic-option');
 const langIcons = document.querySelectorAll('.lang-icon');
+const topicIcons = document.querySelectorAll('.topic-icon');
+const startBtn = document.getElementById('start-btn');
 
 // Event listeners
 for (let i = 0; i < langOptions.length; i += 1) {
   langOptions[i].addEventListener('click', () => {
-    const chosenLanguage = langOptions[i];
     language = langOptions[i].id;
     selectedLanguage();
     displayTopics();
   });
 }
 
+for (let i = 0; i < topicOptions.length; i += 1) {
+  topicOptions[i].addEventListener('click', () => {
+    topic = topicOptions[i].id;
+    selectedTopic();
+    displayStartBtn();
+  });
+}
+
 // When user clicks a language, hide the others
 const selectedLanguage = function displayOnlySelectedLanguage() {
-  // Show tick next to lang name
-  for (let i = 0; i < langIcons.length; i += 1) {
-    langIcons[i].classList.remove('is-hidden');
-  }
-  // Only show selected option
+
+  // Only show selected language and show tick alongside
   for (let i = 0; i < langOptions.length; i += 1) {
-    if (langOptions[i].id !== language) {
-      langOptions[i].classList.add('is-hidden');
+    if (langOptions[i].id === language) {
+      langIcons[i].classList.remove('is-hidden');
+
     } else {
-      langOptions[i].classList.remove('is-fullwidth');
+
+      langOptions[i].classList.add('is-hidden');
     }
   }
 };
 
-const displayTopics = function displayTopicChoices() { };
+const displayTopics = function displayTopicChoices() {
+  topicColumns.classList.remove('is-hidden');
+};
 
-const selectedTopic = function highlightSelectedTopic() { };
+const selectedTopic = function displayOnlySelectedTopic() {
+  // Only show selected topic and show tick alongside
+  for (let i = 0; i < topicOptions.length; i += 1) {
+    if (topicOptions[i].id === topic) {
+      topicIcons[i].classList.remove('is-hidden');
+    } else {
+      topicOptions[i].classList.add('is-hidden');
+
+    }
+  }
+}
+
+const displayStartBtn = function displayStartBtnBelowChoices() {
+  startBtn.classList.remove('is-hidden');
+}
