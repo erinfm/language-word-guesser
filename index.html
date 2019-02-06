@@ -7,6 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Vocab Quiz</title>
   <link rel="stylesheet" href="css/mystyles.css">
+  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
   <script defer src="main.js"></script>
 </head>
 
@@ -20,44 +21,101 @@
         <p class="subtitle is-5 is-size-6-mobile">
           You have one minute to get as many right answers as you can!
         </p>
+
+        <div id="language-columns" class="columns">
+          <div id="lang-column1" class="column">
+            <a class="button is-info is-medium is-fullwidth">
+              <span>French</span>
+              <span class="icon is-small is-hidden">
+                <i class="fas fa-check"></i>
+              </span>
+            </a>
+          </div>
+          <div id="lang-column2" class="column">
+            <a class="button is-info is-medium is-fullwidth">
+              <span>Italian</span>
+              <span class="icon is-small is-hidden">
+                <i class="fas fa-check"></i>
+              </span>
+            </a>
+          </div>
+          <div id="lang-column3" class="column">
+            <a class="button is-info is-medium is-fullwidth">
+              <span>Finnish</span>
+              <span class="icon is-small is-hidden">
+                <i class="fas fa-check"></i>
+              </span>
+            </a>
+          </div>
+        </div>
+
+        <div id="topic-columns" class="columns">
+          <div id="lang-column1" class="column">
+            <a class="button is-info is-medium is-fullwidth">
+              <span>Greetings</span>
+              <span class="icon is-small is-hidden">
+                <i class="fas fa-check"></i>
+              </span>
+            </a>
+          </div>
+          <div id="lang-column2" class="column">
+            <a class="button is-info is-medium is-fullwidth">
+              <span>Colours</span>
+              <span class="icon is-small is-hidden">
+                <i class="fas fa-check"></i>
+              </span>
+            </a>
+          </div>
+          <div id="lang-column3" class="column">
+            <a class="button is-info is-medium is-fullwidth">
+              <span>Animals</span>
+              <span class="icon is-small is-hidden">
+                <i class="fas fa-check"></i>
+              </span>
+            </a>
+          </div>
+        </div>
+
+        <a class="button is-medium is-fullwidth is-success">Start</a>
+
         <p class="is-invisible is-hidden-mobile">.</p>
         <p class="is-invisible is-hidden-mobile">.</p>
 
-        <div id="question-columns" class="columns">
-          <div id="q-column1" class="column">
+        <div id="question-columns" class="columns is-hidden">
+          <div id="q-column1" class="column is-hidden-mobile">
             <p class="box is-invisible">.</p>
           </div>
           <div id="q-column2" class="column is-two-thirds">
-            <p class="box is-size-3 has-text-centered has-text-white-bis">Word</p>
+            <p class="button is-primary is-fullwidth is-large">Word</p>
           </div>
-          <div id="q-column3" class="column">
+          <div id="q-column3" class="column is-hidden-mobile">
             <p class="box is-invisible">.</p>
           </div>
         </div>
 
         <p class="is-invisible is-hidden-mobile">.</p>
 
-        <div id="answer-columns" class="columns">
+        <div id="answer-columns" class="columns is-hidden">
           <div id="a-column1" class="column">
-            <p class="button is-info is-large is-fullwidth">Option 1</p>
+            <p class="button is-info is-medium is-fullwidth">Option 1</p>
           </div>
           <div id="a-column2" class="column">
-            <p class="button is-info is-large is-fullwidth">Option 2</p>
+            <p class="button is-info is-medium is-fullwidth">Option 2</p>
           </div>
           <div id="a-column3" class="column">
-            <p class="button is-info is-large is-fullwidth">Option 3</p>
+            <p class="button is-info is-medium is-fullwidth">Option 3</p>
           </div>
         </div>
 
-        <p class="is-invisible">.</p>
         <p class="is-invisible is-hidden-mobile">.</p>
-        <nav class="level">
+        <p class="is-invisible is-hidden-mobile">.</p>
+        <nav class="level is-hidden">
           <div class="level-left">
             <div class="level-item">
-              <div class="buttons">
-                <a class="button is-normal is-success">Start</a>
-                <a class="button is-normal is-danger">Reset</a>
-              </div>
+
+
+              <a class="button is-normal is-danger">Reset</a>
+
             </div>
           </div>
           <div class="level-right">
