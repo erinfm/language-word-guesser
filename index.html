@@ -11,17 +11,15 @@
 </head>
 
 <body>
-  <section id="background" class="hero is-fullheight is-primary has-background-default">
-    <div class="hero-body">
-      <div class="container">
-        <h1 class="title">
+  <section id="background" class="hero is-fullheight is-light has-background-default  ">
+    <div class="hero-body ">
+      <div class="container ">
+        <h1 class="title is-3 is-size-4-mobile">
           Vocab Quiz
         </h1>
-
-        <p class="subtitle">
-          You have one minute to get as many right answers as you can!</a>
+        <p class="subtitle is-5 is-size-6-mobile">
+          You have one minute to get as many right answers as you can!
         </p>
-
         <p class="is-invisible is-hidden-mobile">.</p>
         <p class="is-invisible is-hidden-mobile">.</p>
 
@@ -30,7 +28,7 @@
             <p class="box is-invisible">.</p>
           </div>
           <div id="q-column2" class="column is-two-thirds">
-            <p class="box is-size-1 has-text-centered">Word</p>
+            <p class="box is-size-3 has-text-centered has-text-white-bis">Word</p>
           </div>
           <div id="q-column3" class="column">
             <p class="box is-invisible">.</p>
@@ -41,13 +39,13 @@
 
         <div id="answer-columns" class="columns">
           <div id="a-column1" class="column">
-            <p class="button is-large is-fullwidth">Option 1</p>
+            <p class="button is-info is-large is-fullwidth">Option 1</p>
           </div>
           <div id="a-column2" class="column">
-            <p class="button is-large is-fullwidth">Option 2</p>
+            <p class="button is-info is-large is-fullwidth">Option 2</p>
           </div>
           <div id="a-column3" class="column">
-            <p class="button is-large is-fullwidth">Option 3</p>
+            <p class="button is-info is-large is-fullwidth">Option 3</p>
           </div>
         </div>
 
@@ -57,20 +55,17 @@
           <div class="level-left">
             <div class="level-item">
               <div class="buttons">
-                <a class="button is-medium is-success">Start</a>
-                <a class="button is-medium is-danger">Reset</a>
+                <a class="button is-normal is-success">Start</a>
+                <a class="button is-normal is-danger">Reset</a>
               </div>
             </div>
           </div>
           <div class="level-right">
             <div class="level-item">
-              <span class="tag is-large">&nbsp;&nbsp;1:00&nbsp;&nbsp;</span>
+              <a class="button is-normal is-inverted is-info is-static">Time Remaining: 1:00</a>
             </div>
             <div class="level-item">
-              <div class="tags has-addons">
-                <span class="tag is-large is-primary">Score</span>
-                <span class="tag is-large">&nbsp;0&nbsp;</span>
-              </div>
+              <a class="button is-normal is-inverted is-primary is-static">Score: 000</a>
             </div>
           </div>
       </div>

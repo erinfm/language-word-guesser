@@ -3,12 +3,27 @@
 
 // Update Bulma's global variables
 $family-sans-serif: "Montserrat", sans-serif;
-$primary: rgb(28, 45, 196);
+$primary: #9e15bf;
+$info: #41bfca;
+$success: rgb(228, 201, 52);
+$danger: #93a7aa;
+$size-1: 5rem;
+$size-2: 3rem;
+$size-3: 2.5rem;
+$size-4: 2rem;
+$size-5: 1.5rem;
+$size-6: 1.25rem;
+$size-7: 1rem;
 
+$box-background-color: $primary;
+
+
+// Other variables
+$background-neutral: #F2F2F2;
 
 // Background
 .has-background-default {
-  background: linear-gradient(to bottom right, rgb(53, 67, 190), rgb(79, 127, 216))
+  background: linear-gradient(to bottom right,#F2F2F2, #F4F4F4)
 }
 // Import only what you need from Bulma
     //To edit at project end
