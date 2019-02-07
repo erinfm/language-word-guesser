@@ -1,4 +1,3 @@
-/* eslint-disable no-restricted-syntax */
 /* eslint-disable no-console */
 /* eslint-disable no-use-before-define */
 /* eslint no-undef: "error" */
@@ -37,7 +36,7 @@ for (let i = 0; i < topicOptions.length; i += 1) {
 // When user clicks a language, hide the others
 const selectedLanguage = function displayOnlySelectedLanguage() {
   // Only show selected language and show tick alongside
-  for (const i of langOptions) {
+  for (let i = 0; i < langOptions.length; i += 1) {
     if (langOptions[i].id === language) {
       langOptions[i].firstElementChild.classList.add('is-static');
       langIcons[i].classList.remove('is-hidden');
@@ -53,7 +52,7 @@ const displayTopics = function displayTopicChoices() {
 
 const selectedTopic = function displayOnlySelectedTopic() {
   // Only show selected topic and show tick alongside
-  for (const i of topicOptions) {
+  for (let i = 0; i < topicOptions.length; i += 1) {
     if (topicOptions[i].id === topic) {
       topicOptions[i].firstElementChild.classList.add('is-static');
       topicIcons[i].classList.remove('is-hidden');
@@ -66,3 +65,7 @@ const selectedTopic = function displayOnlySelectedTopic() {
 const displayStartBtn = function displayStartBtnBelowChoices() {
   startBtn.classList.remove('is-hidden');
 };
+
+
+
+
