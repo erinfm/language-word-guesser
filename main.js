@@ -16,22 +16,19 @@ const langIcons = document.querySelectorAll('.lang-icon');
 const topicIcons = document.querySelectorAll('.topic-icon');
 const startBtn = document.getElementById('start-btn');
 
-// Event listeners
-for (let i = 0; i < langOptions.length; i += 1) {
-  langOptions[i].addEventListener('click', () => {
-    language = langOptions[i].id;
-    selectedLanguage();
-    displayTopics();
-  });
-}
+langColumns.addEventListener('click', e => {
+  if (!e.target.matches('.lang-button, .lang-button *')) return;
+  language = e.target.closest('.lang-option').id;
+  selectedLanguage();
+  displayTopics();
+});
 
-for (let i = 0; i < topicOptions.length; i += 1) {
-  topicOptions[i].addEventListener('click', () => {
-    topic = topicOptions[i].id;
-    selectedTopic();
-    displayStartBtn();
-  });
-}
+topicColumns.addEventListener('click', e => {
+  if (!e.target.matches('.topic-button, .topic-button *')) return;
+  topic = e.target.closest('.topic-option').id;
+  selectedTopic();
+  displayStartBtn();
+});
 
 // When user clicks a language, hide the others
 const selectedLanguage = function displayOnlySelectedLanguage() {
@@ -65,7 +62,3 @@ const selectedTopic = function displayOnlySelectedTopic() {
 const displayStartBtn = function displayStartBtnBelowChoices() {
   startBtn.classList.remove('is-hidden');
 };
-
-
-
-
