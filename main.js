@@ -13,10 +13,12 @@ const langColumns = document.getElementById('language-columns');
 const langIcons = document.querySelectorAll('.lang-icon');
 const langOptions = document.querySelectorAll('.lang-option');
 const questionColumns = document.getElementById('question-columns');
+const quizScreen = document.getElementById('quiz-screen');
 const topicColumns = document.getElementById('topic-columns');
 const topicIcons = document.querySelectorAll('.topic-icon');
 const topicOptions = document.querySelectorAll('.topic-option');
 const startBtn = document.getElementById('start-btn');
+const welcomeScreen = document.getElementById('welcome-screen');
 
 langColumns.addEventListener('click', e => {
   if (!e.target.matches('.lang-button, .lang-button *')) return;
@@ -34,6 +36,7 @@ topicColumns.addEventListener('click', e => {
 
 startBtn.addEventListener('click', () => {
   displayQuizScreen();
+  generateQuestion();
 })
 
 // When user clicks a language, hide the others
@@ -70,5 +73,6 @@ const displayStartBtn = function displayStartBtnBelowChoices() {
 };
 
 const displayQuizScreen = function changeToQuizScreen() {
-
+  welcomeScreen.classList.add('is-hidden');
+  quizScreen.classList.remove('is-hidden');
 }

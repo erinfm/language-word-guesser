@@ -24,68 +24,70 @@
         </p>
         <p class="is-invisible">.</p>
 
-        <div id="language-columns" class="columns">
-          <div id="finnish" class="column lang-option">
-            <a class="button lang-button is-primary is-medium is-fullwidth">
-              <span>Finnish</span>
-              <span class="icon lang-icon is-small is-hidden">
-                <i class="fas fa-check"></i>
-              </span>
-            </a>
+        <div id="welcome-screen">
+          <div id="language-columns" class="columns">
+            <div id="finnish" class="column lang-option">
+              <a class="button lang-button is-primary is-medium is-fullwidth">
+                <span>Finnish</span>
+                <span class="icon lang-icon is-small is-hidden">
+                  <i class="fas fa-check"></i>
+                </span>
+              </a>
+            </div>
+            <div id="french" class="column lang-option">
+              <a class="button lang-button is-primary is-medium is-fullwidth">
+                <span>French</span>
+                <span class="icon lang-icon is-small is-hidden">
+                  <i class="fas fa-check"></i>
+                </span>
+              </a>
+            </div>
+            <div id="italian" class="column lang-option">
+              <a class="button lang-button is-primary is-medium is-fullwidth">
+                <span>Italian</span>
+                <span class="icon lang-icon is-small is-hidden">
+                  <i class="fas fa-check"></i>
+                </span>
+              </a>
+            </div>
           </div>
-          <div id="french" class="column lang-option">
-            <a class="button lang-button is-primary is-medium is-fullwidth">
-              <span>French</span>
-              <span class="icon lang-icon is-small is-hidden">
-                <i class="fas fa-check"></i>
-              </span>
-            </a>
+
+          <div id="topic-columns" class="columns is-hidden">
+            <div id="greetings" class="column topic-option">
+              <a class="button topic-button is-info is-medium is-fullwidth">
+                <span>Greetings</span>
+                <span class="icon topic-icon is-small is-hidden">
+                  <i class="fas fa-check"></i>
+                </span>
+              </a>
+            </div>
+            <div id="colours" class="column topic-option">
+              <a class="button topic-button is-info is-medium is-fullwidth">
+                <span>Colours</span>
+                <span class="icon topic-icon is-small is-hidden">
+                  <i class="fas fa-check"></i>
+                </span>
+              </a>
+            </div>
+            <div id="animals" class="column topic-option">
+              <a class="button topic-button is-info is-medium is-fullwidth">
+                <span>Animals</span>
+                <span class="icon topic-icon is-small is-hidden">
+                  <i class="fas fa-check"></i>
+                </span>
+              </a>
+            </div>
           </div>
-          <div id="italian" class="column lang-option">
-            <a class="button lang-button is-primary is-medium is-fullwidth">
-              <span>Italian</span>
-              <span class="icon lang-icon is-small is-hidden">
-                <i class="fas fa-check"></i>
-              </span>
-            </a>
-          </div>
+          <p class="is-invisible">.</p>
+          <a id="start-btn" class="button is-large is-fullwidth is-success is-hidden">Start</a>
         </div>
 
-        <div id="topic-columns" class="columns is-hidden">
-          <div id="greetings" class="column topic-option">
-            <a class="button topic-button is-info is-medium is-fullwidth">
-              <span>Greetings</span>
-              <span class="icon topic-icon is-small is-hidden">
-                <i class="fas fa-check"></i>
-              </span>
-            </a>
-          </div>
-          <div id="colours" class="column topic-option">
-            <a class="button topic-button is-info is-medium is-fullwidth">
-              <span>Colours</span>
-              <span class="icon topic-icon is-small is-hidden">
-                <i class="fas fa-check"></i>
-              </span>
-            </a>
-          </div>
-          <div id="animals" class="column topic-option">
-            <a class="button topic-button is-info is-medium is-fullwidth">
-              <span>Animals</span>
-              <span class="icon topic-icon is-small is-hidden">
-                <i class="fas fa-check"></i>
-              </span>
-            </a>
-          </div>
-        </div>
-        <p class="is-invisible">.</p>
-        <a id="start-btn" class="button is-large is-fullwidth is-success is-hidden">Start</a>
-
-        <div id="quizScreen">
+        <div id="quiz-screen" class="is-hidden">
 
           <p class="is-invisible is-hidden-mobile">.</p>
           <p class="is-invisible is-hidden-mobile">.</p>
 
-          <div id="question-columns" class="columns is-hidden">
+          <div id="question-columns" class="columns">
             <div id="q-column1" class="column is-hidden-mobile">
               <p class="box is-invisible">.</p>
             </div>
@@ -99,7 +101,7 @@
 
           <p class="is-invisible is-hidden-mobile">.</p>
 
-          <div id="answer-columns" class="columns is-hidden">
+          <div id="answer-columns" class="columns">
             <div id="a-column1" class="column">
               <p class="button is-info is-medium is-fullwidth">Option 1</p>
             </div>
@@ -113,7 +115,7 @@
 
           <p class="is-invisible is-hidden-mobile">.</p>
           <p class="is-invisible is-hidden-mobile">.</p>
-          <nav id="level-bottom" class="level is-hidden">
+          <nav id="level-bottom" class="level">
             <div class="level-left">
               <div class="level-item">
                 <a id="reset-btn" class="button is-normal is-danger">Reset</a>
