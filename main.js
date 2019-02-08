@@ -9,11 +9,11 @@ let topic = '';
 
 // Variables for HTML elements
 const langColumns = document.getElementById('language-columns');
+const langIcons = document.querySelectorAll('.lang-icon');
 const langOptions = document.querySelectorAll('.lang-option');
 const topicColumns = document.getElementById('topic-columns');
-const topicOptions = document.querySelectorAll('.topic-option');
-const langIcons = document.querySelectorAll('.lang-icon');
 const topicIcons = document.querySelectorAll('.topic-icon');
+const topicOptions = document.querySelectorAll('.topic-option');
 const startBtn = document.getElementById('start-btn');
 
 langColumns.addEventListener('click', e => {
