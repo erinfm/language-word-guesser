@@ -4,11 +4,14 @@
 /* eslint-env browser */
 
 // Global variables
+let correctAnswer = '';
 let language = '';
 let topic = '';
 
 // Variables for HTML elements
 const answerColumns = document.getElementById('answer-columns');
+const answerOptions = document.querySelectorAll('.answer-option');
+const currentQuestion = document.getElementById('current-question');
 const langColumns = document.getElementById('language-columns');
 const langIcons = document.querySelectorAll('.lang-icon');
 const langOptions = document.querySelectorAll('.lang-option');
@@ -37,7 +40,7 @@ topicColumns.addEventListener('click', e => {
 startBtn.addEventListener('click', () => {
   displayQuizScreen();
   generateQuestion();
-})
+});
 
 // When user clicks a language, hide the others
 const selectedLanguage = function displayOnlySelectedLanguage() {
@@ -75,4 +78,31 @@ const displayStartBtn = function displayStartBtnBelowChoices() {
 const displayQuizScreen = function changeToQuizScreen() {
   welcomeScreen.classList.add('is-hidden');
   quizScreen.classList.remove('is-hidden');
-}
+};
+
+const generateQuestion = function generateQuestionAndPossibleAnswers() {
+  // Choose a word pair from array, and display the target word on screen
+  const chosenQuestion = frenchAnimals[Math.floor(Math.random() * frenchAnimals.length)];
+  correctAnswer = Object.keys(chosenQuestion)[0];
+  currentQuestion.textContent = Object.values(chosenQuestion)[0];
+
+  // Choose one of the three answer columns at random and display correct answer inside
+  const correctAnswerColumn = document.getElementById(
+    `a-column-${Math.floor(Math.random() * 3)}`
+  );
+  correctAnswerColumn.classList.add('correct-answer');
+  correctAnswerColumn.textContent = correctAnswer;
+
+  // Display incorrect answer options in other two answers columns
+  // TODO: modify so that correct answer cannot appear again among options
+  for (let i = 0; i < answerOptions.length; i += 1) {
+    if (!answerOptions[i].classList.contains('correct-answer')) {
+      console.log('1');
+      const incorrectAnswer =
+        frenchAnimals[Math.floor(Math.random() * frenchAnimals.length)];
+      answerOptions[i].textContent = Object.keys(incorrectAnswer)[0];
+    }
+  }
+
+  console.log(Object.values(chosenQuestion)[0]);
+};
