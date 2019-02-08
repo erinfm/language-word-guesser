@@ -8,9 +8,11 @@ let language = '';
 let topic = '';
 
 // Variables for HTML elements
+const answerColumns = document.getElementById('answer-columns');
 const langColumns = document.getElementById('language-columns');
 const langIcons = document.querySelectorAll('.lang-icon');
 const langOptions = document.querySelectorAll('.lang-option');
+const questionColumns = document.getElementById('question-columns');
 const topicColumns = document.getElementById('topic-columns');
 const topicIcons = document.querySelectorAll('.topic-icon');
 const topicOptions = document.querySelectorAll('.topic-option');
@@ -66,3 +68,7 @@ const selectedTopic = function displayOnlySelectedTopic() {
 const displayStartBtn = function displayStartBtnBelowChoices() {
   startBtn.classList.remove('is-hidden');
 };
+
+const displayQuizScreen = function changeToQuizScreen() {
+
+}
