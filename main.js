@@ -30,6 +30,10 @@ topicColumns.addEventListener('click', e => {
   displayStartBtn();
 });
 
+startBtn.addEventListener('click', () => {
+  displayQuizScreen();
+})
+
 // When user clicks a language, hide the others
 const selectedLanguage = function displayOnlySelectedLanguage() {
   // Only show selected language and show tick alongside
