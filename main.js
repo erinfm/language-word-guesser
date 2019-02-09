@@ -43,6 +43,19 @@ startBtn.addEventListener('click', () => {
   generateQuestion();
 });
 
+answerColumns.addEventListener('click', e => {
+  if (!e.target.matches('.answer-option')) return;
+  if (e.target.matches('.correct-answer')) {
+    correctAnswer();
+    incrementScore();
+    generateQuestion();
+  }
+  else {
+    incorrectAnswer();
+    generateQuestion();
+  }
+});
+
 // When user clicks a language, hide the others
 const selectedLanguage = function displayOnlySelectedLanguage() {
   // Only show selected language and show tick alongside
