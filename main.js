@@ -46,13 +46,12 @@ startBtn.addEventListener('click', () => {
 answerColumns.addEventListener('click', e => {
   if (!e.target.matches('.answer-option')) return;
   if (e.target.matches('.correct-answer')) {
-    correctAnswer();
-    incrementScore();
-    generateQuestion();
-  }
-  else {
-    incorrectAnswer();
-    generateQuestion();
+    correctAnswerChosen(e);
+    // incrementScore();
+    // generateQuestion();
+  } else {
+    incorrectAnswerChosen(e);
+    // generateQuestion();
   }
 });
 
@@ -124,4 +123,14 @@ const generateQuestion = function generateQuestionAndPossibleAnswers() {
       answerOptions[i].textContent = Object.keys(incorrectAnswer)[0];
     }
   }
+};
+
+const correctAnswerChosen = function correctAnswerTurnsGreen(e) {
+  console.log(e);
+  e.target.classList.add('is-success');
+};
+
+const incorrectAnswerChosen = function incorrectAnswerTurnsRed(e) {
+  console.log(e);
+  e.target.classList.add('is-danger');
 };
