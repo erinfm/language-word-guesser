@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /* eslint-disable no-console */
 /* eslint-disable no-use-before-define */
 /* eslint no-undef: "error" */
@@ -82,7 +83,8 @@ const displayQuizScreen = function changeToQuizScreen() {
 
 const generateQuestion = function generateQuestionAndPossibleAnswers() {
   // Choose a word pair from array, and display the target word on screen
-  const chosenQuestion = frenchAnimals[Math.floor(Math.random() * frenchAnimals.length)];
+  const randomIndexForQuestion = Math.floor(Math.random() * frenchAnimals.length);
+  const chosenQuestion = frenchAnimals[randomIndexForQuestion];
   correctAnswer = Object.keys(chosenQuestion)[0];
   currentQuestion.textContent = Object.values(chosenQuestion)[0];
 
@@ -94,15 +96,19 @@ const generateQuestion = function generateQuestionAndPossibleAnswers() {
   correctAnswerColumn.textContent = correctAnswer;
 
   // Display incorrect answer options in other two answers columns
-  // TODO: modify so that correct answer cannot appear again among options
   for (let i = 0; i < answerOptions.length; i += 1) {
     if (!answerOptions[i].classList.contains('correct-answer')) {
-      console.log('1');
-      const incorrectAnswer =
-        frenchAnimals[Math.floor(Math.random() * frenchAnimals.length)];
+      let randomIndexForIncorrectOption = Math.floor(
+        Math.random() * (frenchAnimals.length - 1)
+      );
+
+      // Ensures that correct answer cannot appear again among options
+      if (randomIndexForIncorrectOption >= randomIndexForQuestion)
+        randomIndexForIncorrectOption += 1;
+      const incorrectAnswer = frenchAnimals[randomIndexForIncorrectOption];
+
+      console.log(incorrectAnswer);
       answerOptions[i].textContent = Object.keys(incorrectAnswer)[0];
     }
   }
-
-  console.log(Object.values(chosenQuestion)[0]);
 };
