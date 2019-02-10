@@ -9,6 +9,7 @@ let correctAnswer = '';
 let currentScore = 0;
 let language = '';
 let topic = '';
+let usedQuestionIndexes = [];
 
 // Variables for HTML elements
 const answerColumns = document.getElementById('answer-columns');
@@ -52,17 +53,11 @@ answerColumns.addEventListener('click', e => {
     incrementScore();
     setTimeout(resetOptionClasses, 1000);
     setTimeout(generateQuestion, 1000);
-    // setTimeout(function () {
-    //   generateQuestion();
-    // }, 1000);
   } else {
     incorrectAnswerChosen(e);
     showCorrectAnswer();
     setTimeout(resetOptionClasses, 1000);
     setTimeout(generateQuestion, 1000);
-    // setTimeout(function () {
-    //   generateQuestion();
-    // }, 1000);
   }
 });
 
@@ -104,10 +99,23 @@ const displayQuizScreen = function changeToQuizScreen() {
   quizScreen.classList.remove('is-hidden');
 };
 
-const generateQuestion = function generateQuestionAndPossibleAnswers() {
-  // Choose a word pair from array, and display the target word on screen
+const getRandomIndex = function getRandomQuestionIndex() {
+  // Choose a word pair from topic array, check that it has not been used already during the round, and display the target word on screen
+
   const randomIndexForQuestion = Math.floor(Math.random() * frenchAnimals.length);
-  const chosenQuestion = frenchAnimals[randomIndexForQuestion];
+
+  // Add question index to array so it is not used again during round
+  usedQuestionIndexes.push(randomIndex);
+
+  return randomIndexForQuestion;
+}
+
+const generateQuestion = function generateQuestionAndPossibleAnswers() {
+
+  let randomIndex = getRandomIndex();
+
+  const chosenQuestion = frenchAnimals[randomIndex];
+
   correctAnswer = Object.keys(chosenQuestion)[0];
   currentQuestion.textContent = Object.values(chosenQuestion)[0];
 
@@ -126,7 +134,7 @@ const generateQuestion = function generateQuestionAndPossibleAnswers() {
       );
 
       // Ensures that correct answer cannot appear again among options
-      if (randomIndexForIncorrectOption >= randomIndexForQuestion)
+      if (randomIndexForIncorrectOption >= randomIndex)
         randomIndexForIncorrectOption += 1;
       const incorrectAnswer = frenchAnimals[randomIndexForIncorrectOption];
 
