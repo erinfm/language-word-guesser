@@ -6,6 +6,7 @@
 
 // Global variables
 let correctAnswer = '';
+let currentScore = 0;
 let language = '';
 let topic = '';
 
@@ -21,6 +22,7 @@ const quizScreen = document.getElementById('quiz-screen');
 const topicColumns = document.getElementById('topic-columns');
 const topicIcons = document.querySelectorAll('.topic-icon');
 const topicOptions = document.querySelectorAll('.topic-option');
+const scoreDisplay = document.getElementById('score');
 const startBtn = document.getElementById('start-btn');
 const welcomeScreen = document.getElementById('welcome-screen');
 
@@ -47,11 +49,22 @@ answerColumns.addEventListener('click', e => {
   if (!e.target.matches('.answer-option')) return;
   if (e.target.matches('.correct-answer')) {
     correctAnswerChosen(e);
-    // incrementScore();
-    // generateQuestion();
+    incrementScore();
+    // setTimeout(
+    //   resetOptionClasses
+    //   , 2000);
+    // setTimeout(function () {
+    //   generateQuestion();
+    // }, 1000);
   } else {
     incorrectAnswerChosen(e);
-    // generateQuestion();
+    showCorrectAnswer();
+    // setTimeout(
+    //   resetOptionClasses
+    //   , 2000);
+    // setTimeout(function () {
+    //   generateQuestion();
+    // }, 1000);
   }
 });
 
@@ -126,11 +139,30 @@ const generateQuestion = function generateQuestionAndPossibleAnswers() {
 };
 
 const correctAnswerChosen = function correctAnswerTurnsGreen(e) {
-  console.log(e);
   e.target.classList.add('is-success');
 };
 
 const incorrectAnswerChosen = function incorrectAnswerTurnsRed(e) {
-  console.log(e);
   e.target.classList.add('is-danger');
 };
+
+const incrementScore = function incrementScoreByOne() {
+  currentScore += 1;
+  score.textContent = `Score: ${currentScore}`;
+};
+
+// Highlights correct answer in green when incorrect answer chosen
+const showCorrectAnswer = function showCorrectAnswerInGreen() {
+  for (let i = 0; i < answerOptions.length; i += 1) {
+    if (answerOptions[i].classList.contains('correct-answer')) {
+      answerOptions[i].classList.add('is-success');
+    }
+  }
+
+  // const resetOptionClasses = function resetOptionClassesBeforeNextQ() {
+  //   for (let i = 0; i < answerOptions.length; i += 1) {
+  //     if (answerOptions[i].classList.contains('is-success')) {
+  //       answerOptions[i].classList.remove('correct-answer', 'is-success');
+  //     } else answerOptions[i].classList.remove('is-danger');
+  //   }
+  // }
