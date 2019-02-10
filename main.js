@@ -9,7 +9,7 @@ let correctAnswer = '';
 let currentScore = 0;
 let language = '';
 let topic = '';
-let usedQuestionIndexes = [];
+const usedQuestionIndexes = [];
 
 // Variables for HTML elements
 const answerColumns = document.getElementById('answer-columns');
@@ -109,11 +109,10 @@ const getRandomIndex = function getRandomQuestionIndex() {
   // Add question index to array so it is not used again during round
   usedQuestionIndexes.push(randomIndexForQuestion);
   return randomIndexForQuestion;
-}
+};
 
 const generateQuestion = function generateQuestionAndPossibleAnswers() {
-
-  let randomIndex = getRandomIndex();
+  const randomIndex = getRandomIndex();
 
   const chosenQuestion = frenchAnimals[randomIndex];
 
@@ -127,12 +126,13 @@ const generateQuestion = function generateQuestionAndPossibleAnswers() {
   correctAnswerColumn.classList.add('correct-answer');
   correctAnswerColumn.textContent = correctAnswer;
 
-  // Display incorrect answer options in other two answers columns
+  // Display different incorrect answer options in other two answers columns
   for (let i = 0; i < answerOptions.length; i += 1) {
     if (!answerOptions[i].classList.contains('correct-answer')) {
       let randomIndexForIncorrectOption = Math.floor(
         Math.random() * (frenchAnimals.length - 1)
       );
+      // Ensure different incorrect answer shows in each column
 
       // Ensures that correct answer cannot appear again among options
       if (randomIndexForIncorrectOption >= randomIndex)
@@ -173,4 +173,4 @@ const resetOptionClasses = function resetOptionClassesAfterQ() {
       answerOptions[i].classList.remove('correct-answer', 'is-success');
     } else answerOptions[i].classList.remove('is-danger');
   }
-}
+};
