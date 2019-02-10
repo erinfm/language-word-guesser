@@ -20,6 +20,7 @@ const langIcons = document.querySelectorAll('.lang-icon');
 const langOptions = document.querySelectorAll('.lang-option');
 const questionColumns = document.getElementById('question-columns');
 const quizScreen = document.getElementById('quiz-screen');
+const timer = document.getElementById('timer');
 const topicColumns = document.getElementById('topic-columns');
 const topicIcons = document.querySelectorAll('.topic-icon');
 const topicOptions = document.querySelectorAll('.topic-option');
@@ -44,6 +45,7 @@ topicColumns.addEventListener('click', e => {
 startBtn.addEventListener('click', () => {
   displayQuizScreen();
   generateQuestion();
+  startTimer();
 });
 
 answerColumns.addEventListener('click', e => {
@@ -127,7 +129,7 @@ const generateQuestion = function generateQuestionAndPossibleAnswers() {
   correctAnswerColumn.textContent = correctAnswer;
 
   // Display different incorrect answer options in other two answers columns
-  let randomIndexArray = [];
+  const randomIndexArray = [];
   for (let i = 0; i < answerOptions.length; i += 1) {
     if (!answerOptions[i].classList.contains('correct-answer')) {
       let randomIndexForIncorrectOption = Math.floor(
@@ -136,14 +138,12 @@ const generateQuestion = function generateQuestionAndPossibleAnswers() {
       // Ensure different incorrect answer shows in each column
       if (randomIndexArray.includes(randomIndexForIncorrectOption))
         randomIndexForIncorrectOption += 1;
-      console.log(randomIndexForIncorrectOption)
       randomIndexArray.push(randomIndexForIncorrectOption);
 
       // Ensures that correct answer cannot appear again among options
       if (randomIndexForIncorrectOption >= randomIndex)
         randomIndexForIncorrectOption += 1;
       const incorrectAnswer = frenchAnimals[randomIndexForIncorrectOption];
-
 
       answerOptions[i].textContent = Object.keys(incorrectAnswer)[0];
     }
@@ -160,7 +160,7 @@ const incorrectAnswerChosen = function incorrectAnswerTurnsRed(e) {
 
 const incrementScore = function incrementScoreByOne() {
   currentScore += 1;
-  score.textContent = `Score: ${currentScore}`;
+  scoreDisplay.textContent = `Score: ${currentScore}`;
 };
 
 // Highlights correct answer in green when incorrect answer chosen
@@ -178,4 +178,21 @@ const resetOptionClasses = function resetOptionClassesAfterQ() {
       answerOptions[i].classList.remove('correct-answer', 'is-success');
     } else answerOptions[i].classList.remove('is-danger');
   }
+};
+
+const startTimer = function startTimerCountdown() {
+  const maxTicks = 59;
+  let tickCount = 0;
+  const tick = () => {
+    if (tickCount >= maxTicks) {
+      // Stops the interval.
+      clearInterval(myInterval);
+      return;
+    }
+    timer.textContent = `Time Remaining: ${maxTicks - tickCount}`;
+    tickCount += 1;
+  };
+
+  // Call tick function every second.
+  const myInterval = setInterval(tick, 1000);
 };
