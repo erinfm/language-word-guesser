@@ -108,14 +108,14 @@ const displayQuizScreen = function changeToQuizScreen() {
 
 const getRandomIndex = function getRandomQuestionIndex() {
   // Choose a word pair from topic array, check that it has not been used already during the round, and display the target word on screen
-  const randomIndexForQuestion = Math.floor(Math.random() * frenchAnimals.length);
+  const indexForQuestion = Math.floor(Math.random() * frenchAnimals.length);
 
   // Repeate function to choose another value if chosen value has already been used
-  if (usedQuestionIndexes.includes(randomIndexForQuestion)) return getRandomIndex();
+  if (usedQuestionIndexes.includes(indexForQuestion)) return getRandomIndex();
 
   // Add question index to array so it is not used again during round
-  usedQuestionIndexes.push(randomIndexForQuestion);
-  return randomIndexForQuestion;
+  usedQuestionIndexes.push(indexForQuestion);
+  return indexForQuestion;
 };
 
 const generateQuestion = function generateQuestionAndPossibleAnswers() {
@@ -134,21 +134,21 @@ const generateQuestion = function generateQuestionAndPossibleAnswers() {
   correctAnswerColumn.textContent = correctAnswer;
 
   // Display different incorrect answer options in other two answers columns
-  const randomIndexArray = [];
+  const indexArray = [];
   for (let i = 0; i < answerOptions.length; i += 1) {
     if (!answerOptions[i].classList.contains('correct-answer')) {
-      let randomIndexForIncorrectOption = Math.floor(
+      let indexForIncorrectOption = Math.floor(
         Math.random() * (frenchAnimals.length - 2)
       );
       // Ensure different incorrect answer shows in each column
-      if (randomIndexArray.includes(randomIndexForIncorrectOption))
-        randomIndexForIncorrectOption += 1;
-      randomIndexArray.push(randomIndexForIncorrectOption);
+      if (indexArray.includes(indexForIncorrectOption))
+        indexForIncorrectOption += 1;
+      indexArray.push(indexForIncorrectOption);
 
       // Ensures that correct answer cannot appear again among options
-      if (randomIndexForIncorrectOption >= randomIndex)
-        randomIndexForIncorrectOption += 1;
-      const incorrectAnswer = frenchAnimals[randomIndexForIncorrectOption];
+      if (indexForIncorrectOption >= randomIndex)
+        indexForIncorrectOption += 1;
+      const incorrectAnswer = frenchAnimals[indexForIncorrectOption];
 
       answerOptions[i].textContent = Object.keys(incorrectAnswer)[0];
     }
@@ -201,3 +201,7 @@ const startTimer = function startTimerCountdown() {
   // Call tick function every second.
   const myInterval = setInterval(tick, 1000);
 };
+
+// const resetQuiz = function resetQuizProgress() {
+
+// }
