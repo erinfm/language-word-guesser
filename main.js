@@ -127,19 +127,24 @@ const generateQuestion = function generateQuestionAndPossibleAnswers() {
   correctAnswerColumn.textContent = correctAnswer;
 
   // Display different incorrect answer options in other two answers columns
+  let randomIndexArray = [];
   for (let i = 0; i < answerOptions.length; i += 1) {
     if (!answerOptions[i].classList.contains('correct-answer')) {
       let randomIndexForIncorrectOption = Math.floor(
-        Math.random() * (frenchAnimals.length - 1)
+        Math.random() * (frenchAnimals.length - 2)
       );
       // Ensure different incorrect answer shows in each column
+      if (randomIndexArray.includes(randomIndexForIncorrectOption))
+        randomIndexForIncorrectOption += 1;
+      console.log(randomIndexForIncorrectOption)
+      randomIndexArray.push(randomIndexForIncorrectOption);
 
       // Ensures that correct answer cannot appear again among options
       if (randomIndexForIncorrectOption >= randomIndex)
         randomIndexForIncorrectOption += 1;
       const incorrectAnswer = frenchAnimals[randomIndexForIncorrectOption];
 
-      console.log(incorrectAnswer);
+
       answerOptions[i].textContent = Object.keys(incorrectAnswer)[0];
     }
   }
