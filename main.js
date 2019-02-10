@@ -101,12 +101,13 @@ const displayQuizScreen = function changeToQuizScreen() {
 
 const getRandomIndex = function getRandomQuestionIndex() {
   // Choose a word pair from topic array, check that it has not been used already during the round, and display the target word on screen
-
   const randomIndexForQuestion = Math.floor(Math.random() * frenchAnimals.length);
 
-  // Add question index to array so it is not used again during round
-  usedQuestionIndexes.push(randomIndex);
+  // Repeate function to choose another value if chosen value has already been used
+  if (usedQuestionIndexes.includes(randomIndexForQuestion)) return getRandomIndex();
 
+  // Add question index to array so it is not used again during round
+  usedQuestionIndexes.push(randomIndexForQuestion);
   return randomIndexForQuestion;
 }
 
