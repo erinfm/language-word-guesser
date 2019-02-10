@@ -20,6 +20,7 @@ const langIcons = document.querySelectorAll('.lang-icon');
 const langOptions = document.querySelectorAll('.lang-option');
 const questionColumns = document.getElementById('question-columns');
 const quizScreen = document.getElementById('quiz-screen');
+const resetBtn = document.getElementById('reset-btn');
 const timer = document.getElementById('timer');
 const topicColumns = document.getElementById('topic-columns');
 const topicIcons = document.querySelectorAll('.topic-icon');
@@ -61,6 +62,10 @@ answerColumns.addEventListener('click', e => {
     setTimeout(resetOptionClasses, 1000);
     setTimeout(generateQuestion, 1000);
   }
+});
+
+resetBtn.addEventListener('click', () => {
+  resetQuiz();
 });
 
 // When user clicks a language, hide the others
