@@ -50,18 +50,16 @@ answerColumns.addEventListener('click', e => {
   if (e.target.matches('.correct-answer')) {
     correctAnswerChosen(e);
     incrementScore();
-    // setTimeout(
-    //   resetOptionClasses
-    //   , 2000);
+    setTimeout(resetOptionClasses, 1000);
+    setTimeout(generateQuestion, 1000);
     // setTimeout(function () {
     //   generateQuestion();
     // }, 1000);
   } else {
     incorrectAnswerChosen(e);
     showCorrectAnswer();
-    // setTimeout(
-    //   resetOptionClasses
-    //   , 2000);
+    setTimeout(resetOptionClasses, 1000);
+    setTimeout(generateQuestion, 1000);
     // setTimeout(function () {
     //   generateQuestion();
     // }, 1000);
@@ -158,11 +156,12 @@ const showCorrectAnswer = function showCorrectAnswerInGreen() {
       answerOptions[i].classList.add('is-success');
     }
   }
+};
 
-  // const resetOptionClasses = function resetOptionClassesBeforeNextQ() {
-  //   for (let i = 0; i < answerOptions.length; i += 1) {
-  //     if (answerOptions[i].classList.contains('is-success')) {
-  //       answerOptions[i].classList.remove('correct-answer', 'is-success');
-  //     } else answerOptions[i].classList.remove('is-danger');
-  //   }
-  // }
+const resetOptionClasses = function resetOptionClassesAfterQ() {
+  for (let i = 0; i < answerOptions.length; i += 1) {
+    if (answerOptions[i].classList.contains('is-success')) {
+      answerOptions[i].classList.remove('correct-answer', 'is-success');
+    } else answerOptions[i].classList.remove('is-danger');
+  }
+}
