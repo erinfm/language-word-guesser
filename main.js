@@ -41,11 +41,11 @@ topicColumns.addEventListener('click', e => {
   if (!e.target.matches('.topic-button, .topic-button *')) return;
   topic = e.target.closest('.topic-option').id;
   selectedTopic();
-  displayStartBtn();
+  toggleStartBtn();
 });
 
 startBtn.addEventListener('click', () => {
-  displayQuizScreen();
+  toggleQuizScreen();
   generateQuestion();
   startTimer();
 });
@@ -98,13 +98,13 @@ const selectedTopic = function displayOnlySelectedTopic() {
   }
 };
 
-const displayStartBtn = function displayStartBtnBelowChoices() {
-  startBtn.classList.remove('is-hidden');
+const toggleStartBtn = function displayStartBtnBelowChoices() {
+  startBtn.classList.toggle('is-hidden');
 };
 
-const displayQuizScreen = function changeToQuizScreen() {
-  welcomeScreen.classList.add('is-hidden');
-  quizScreen.classList.remove('is-hidden');
+const toggleQuizScreen = function changeToQuizScreen() {
+  welcomeScreen.classList.toggle('is-hidden');
+  quizScreen.classList.toggle('is-hidden');
 };
 
 const getRandomIndex = function getRandomQuestionIndex() {
@@ -206,19 +206,52 @@ const startTimer = function startTimerCountdown() {
 
 const stopTimer = function stopTimerFunction() {
   clearInterval(myInterval);
-  timer.textContent = `Time Remaining: 60`
+  timer.textContent = `Time Remaining: 60`;
 };
 
-const resetQuiz = function resetQuizProgress() {
-  stopTimer();
-  resetOptionClasses();
+const resetAnswers = function resetAnswersToDefault() {
   for (let i = 0; i < answerOptions.length; i += 1) {
     if (!answerOptions[i].classList.contains('correct-answer')) {
       answerOptions[i].classList.remove('correct-answer');
     }
   }
-  welcomeScreen.classList.remove('is-hidden');
-  quizScreen.classList.add('is-hidden');
-  currentScore = 0;
+}
 
+const resetLangOptions = function resetLanguageOptionsToDefault() {
+  for (let i = 0; i < langOptions.length; i += 1) {
+    if (langOptions[i].id === language) {
+      langOptions[i].firstElementChild.classList.remove('is-static');
+      langIcons[i].classList.add('is-hidden');
+    } else {
+      langOptions[i].classList.remove('is-hidden');
+    }
+  }
+}
+
+const resetTopicOptions = function resetTopicOptionsToDefault() {
+  for (let i = 0; i < topicOptions.length; i += 1) {
+    if (topicOptions[i].id === topic) {
+      topicOptions[i].firstElementChild.classList.remove('is-static');
+      topicIcons[i].classList.add('is-hidden');
+    } else {
+      topicOptions[i].classList.remove('is-hidden');
+    }
+  }
+}
+
+const resetTopicColumns = function resetTopicColumnsToDefault() {
+  topicColumns.classList.add('is-hidden');
+}
+
+
+const resetQuiz = function resetQuizProgress() {
+  stopTimer();
+  resetOptionClasses();
+  resetAnswers();
+  resetLangOptions();
+  resetTopicOptions();
+  resetTopicColumns();
+  toggleStartBtn();
+  toggleQuizScreen();
+  currentScore = 0;
 };
