@@ -9,6 +9,7 @@ let correctAnswer = '';
 let currentScore = 0;
 let language = '';
 let topic = '';
+let myInterval = '';
 const usedQuestionIndexes = [];
 
 // Variables for HTML elements
@@ -200,9 +201,19 @@ const startTimer = function startTimerCountdown() {
   };
 
   // Call tick function every second.
-  const myInterval = setInterval(tick, 1000);
+  myInterval = setInterval(tick, 1000);
 };
 
-// const resetQuiz = function resetQuizProgress() {
+const stopTimer = function stopTimerFunction() {
+  clearInterval(myInterval);
+};
 
-// }
+const resetQuiz = function resetQuizProgress() {
+  stopTimer();
+  resetOptionClasses();
+  for (let i = 0; i < answerOptions.length; i += 1) {
+    if (!answerOptions[i].classList.contains('correct-answer')) {
+      answerOptions[i].classList.remove('correct-answer');
+    }
+  }
+};
