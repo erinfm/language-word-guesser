@@ -141,13 +141,11 @@ const generateQuestion = function generateQuestionAndPossibleAnswers() {
         Math.random() * (frenchAnimals.length - 2)
       );
       // Ensure different incorrect answer shows in each column
-      if (indexArray.includes(indexForIncorrectOption))
-        indexForIncorrectOption += 1;
+      if (indexArray.includes(indexForIncorrectOption)) indexForIncorrectOption += 1;
       indexArray.push(indexForIncorrectOption);
 
       // Ensures that correct answer cannot appear again among options
-      if (indexForIncorrectOption >= randomIndex)
-        indexForIncorrectOption += 1;
+      if (indexForIncorrectOption >= randomIndex) indexForIncorrectOption += 1;
       const incorrectAnswer = frenchAnimals[indexForIncorrectOption];
 
       answerOptions[i].textContent = Object.keys(incorrectAnswer)[0];
@@ -194,7 +192,7 @@ const startTimer = function startTimerCountdown() {
       clearInterval(myInterval);
       return;
     }
-    timer.textContent = `Time Remaining: ${maxTicks - tickCount}`;
+    timer.textContent = `${maxTicks - tickCount}`;
     tickCount += 1;
   };
 

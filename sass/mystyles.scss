@@ -26,6 +26,12 @@ $background-neutral: #F2F2F2;
   background: linear-gradient(to bottom right,#F2F2F2, #F4F4F4)
 }
 
+// Timer - fixed width
+#timer {
+  min-width: 60px;
+}
+
+
 
 // Import only what you need from Bulma
     //To edit at project end
