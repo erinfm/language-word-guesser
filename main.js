@@ -33,14 +33,14 @@ const welcomeScreen = document.getElementById('welcome-screen');
 langColumns.addEventListener('click', e => {
   if (!e.target.matches('.lang-button, .lang-button *')) return;
   language = e.target.closest('.lang-option').id;
-  selectedLanguage();
-  displayTopics();
+  toggleLangOptions();
+  toggleTopics();
 });
 
 topicColumns.addEventListener('click', e => {
   if (!e.target.matches('.topic-button, .topic-button *')) return;
   topic = e.target.closest('.topic-option').id;
-  selectedTopic();
+  toggleSelectedTopic();
   toggleStartBtn();
 });
 
@@ -70,30 +70,30 @@ resetBtn.addEventListener('click', () => {
 });
 
 // When user clicks a language, hide the others
-const selectedLanguage = function displayOnlySelectedLanguage() {
+const toggleLangOptions = function toggleSelectedLangOptions() {
   // Only show selected language and show tick alongside
   for (let i = 0; i < langOptions.length; i += 1) {
     if (langOptions[i].id === language) {
-      langOptions[i].firstElementChild.classList.add('is-static');
-      langIcons[i].classList.remove('is-hidden');
+      langOptions[i].firstElementChild.classList.toggle('is-static');
+      langIcons[i].classList.toggle('is-hidden');
     } else {
-      langOptions[i].classList.add('is-hidden');
+      langOptions[i].classList.toggle('is-hidden');
     }
   }
 };
 
-const displayTopics = function displayTopicChoices() {
-  topicColumns.classList.remove('is-hidden');
+const toggleTopics = function toggleTopicChoices() {
+  topicColumns.classList.toggle('is-hidden');
 };
 
-const selectedTopic = function displayOnlySelectedTopic() {
+const toggleSelectedTopic = function toggleSelectedTopicDisplay() {
   // Only show selected topic and show tick alongside
   for (let i = 0; i < topicOptions.length; i += 1) {
     if (topicOptions[i].id === topic) {
-      topicOptions[i].firstElementChild.classList.add('is-static');
-      topicIcons[i].classList.remove('is-hidden');
+      topicOptions[i].firstElementChild.classList.toggle('is-static');
+      topicIcons[i].classList.toggle('is-hidden');
     } else {
-      topicOptions[i].classList.add('is-hidden');
+      topicOptions[i].classList.toggle('is-hidden');
     }
   }
 };
@@ -217,40 +217,13 @@ const resetAnswers = function resetAnswersToDefault() {
   }
 }
 
-const resetLangOptions = function resetLanguageOptionsToDefault() {
-  for (let i = 0; i < langOptions.length; i += 1) {
-    if (langOptions[i].id === language) {
-      langOptions[i].firstElementChild.classList.remove('is-static');
-      langIcons[i].classList.add('is-hidden');
-    } else {
-      langOptions[i].classList.remove('is-hidden');
-    }
-  }
-}
-
-const resetTopicOptions = function resetTopicOptionsToDefault() {
-  for (let i = 0; i < topicOptions.length; i += 1) {
-    if (topicOptions[i].id === topic) {
-      topicOptions[i].firstElementChild.classList.remove('is-static');
-      topicIcons[i].classList.add('is-hidden');
-    } else {
-      topicOptions[i].classList.remove('is-hidden');
-    }
-  }
-}
-
-const resetTopicColumns = function resetTopicColumnsToDefault() {
-  topicColumns.classList.add('is-hidden');
-}
-
-
 const resetQuiz = function resetQuizProgress() {
   stopTimer();
   resetOptionClasses();
   resetAnswers();
-  resetLangOptions();
-  resetTopicOptions();
-  resetTopicColumns();
+  toggleLangOptions();
+  toggleSelectedTopic();
+  toggleTopics();
   toggleStartBtn();
   toggleQuizScreen();
   currentScore = 0;
