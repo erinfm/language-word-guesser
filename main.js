@@ -192,7 +192,7 @@ const startTimer = function startTimerCountdown() {
       clearInterval(myInterval);
       return;
     }
-    timer.textContent = `${maxTicks - tickCount}`;
+    timer.textContent = `Time Remaining: ${maxTicks - tickCount}`;
     tickCount += 1;
   };
 

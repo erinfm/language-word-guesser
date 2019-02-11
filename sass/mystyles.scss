@@ -26,9 +26,14 @@ $background-neutral: #F2F2F2;
   background: linear-gradient(to bottom right,#F2F2F2, #F4F4F4)
 }
 
-// Timer - fixed width
+// Permits buttons with left-aligned text
+.button.has-text-left {
+  justify-content: flex-start;
+}
+
+// Gives timer a fixed width
 #timer {
-  min-width: 60px;
+  min-width: 234px;
 }
 
 
