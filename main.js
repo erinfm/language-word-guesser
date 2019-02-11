@@ -206,6 +206,7 @@ const startTimer = function startTimerCountdown() {
 
 const stopTimer = function stopTimerFunction() {
   clearInterval(myInterval);
+  timer.textContent = `Time Remaining: 60`
 };
 
 const resetQuiz = function resetQuizProgress() {
@@ -216,4 +217,8 @@ const resetQuiz = function resetQuizProgress() {
       answerOptions[i].classList.remove('correct-answer');
     }
   }
+  welcomeScreen.classList.remove('is-hidden');
+  quizScreen.classList.add('is-hidden');
+  currentScore = 0;
+
 };
