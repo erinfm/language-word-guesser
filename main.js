@@ -71,6 +71,9 @@ answerColumns.addEventListener('click', e => {
 });
 
 playAgainBtn.addEventListener('click', () => {
+  quizScreen.classList.toggle('is-hidden');
+  titleSubtitle.classList.toggle('is-hidden');
+  finalScore.classList.toggle('is-hidden');
   resetQuiz();
 });
 
