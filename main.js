@@ -186,11 +186,13 @@ const resetOptionClasses = function resetOptionClassesAfterQ() {
 
 const startTimer = function startTimerCountdown() {
   const maxTicks = 59;
-  let tickCount = 0;
+  let tickCount = -1;
   const tick = () => {
     if (tickCount >= maxTicks) {
       // Stops the interval.
       clearInterval(myInterval);
+      // End the round
+      stopQuiz();
       return;
     }
     const timeRemaining = maxTicks - tickCount;
@@ -215,7 +217,7 @@ const resetAnswers = function resetAnswersToDefault() {
       answerOptions[i].classList.remove('correct-answer');
     }
   }
-}
+};
 
 const resetQuiz = function resetQuizProgress() {
   stopTimer();
@@ -228,3 +230,7 @@ const resetQuiz = function resetQuizProgress() {
   toggleQuizScreen();
   currentScore = 0;
 };
+
+const stopQuiz = function stopQuizWhenRoundEnds() {
+  console.log('end of quiz!')
+}
