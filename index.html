@@ -16,15 +16,17 @@
   <section class="hero is-fullheight is-light has-background-default">
     <div class="hero-body">
       <div class="container">
-        <h1 id="title" class="title is-3 is-size-4-mobile">
-          Vocab Quiz
-        </h1>
-        <p id="subtitle" class="subtitle is-6 is-size-7-mobile">
-          Pick a language, then a topic to test. You'll have one minute to get as many correct answers as you can!
-        </p>
-        <p class="is-invisible">.</p>
+        <div id="title-subtitle">
+          <h1 id="title" class="title is-3 is-size-4-mobile">
+            Vocab Quiz
+          </h1>
+          <p id="subtitle" class="subtitle is-6 is-size-7-mobile">
+            Pick a language, then a topic to test. You'll have one minute to get as many correct answers as you can!
+          </p>
+          <p class="is-invisible">.</p>
+        </div>
 
-        <div id="welcome-screen" class="is-hidden">
+        <div id="welcome-screen">
           <div id="language-columns" class="columns">
             <div id="finnish" class="column lang-option">
               <a class="button lang-button is-primary is-medium is-fullwidth">
@@ -135,11 +137,21 @@
           </nav>
         </div>
 
-        <div id="score-screen">
-
-
-        </div>
+        <section id="final-score" class="hero is-hidden">
+          <div class="hero-body">
+            <div class="container has-text-centered">
+              <h1 id="final-score-display" class="title is-1">
+                Your score: 0
+              </h1>
+              <h2 class="subtitle">
+                Well done!
+              </h2>
+              <a id="play-again-btn" class="button is-large is-link">Play Again</a>
+            </div>
+          </div>
+        </section>
       </div>
+    </div>
     </div>
   </section>
 </body>

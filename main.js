@@ -8,21 +8,26 @@
 let correctAnswer = '';
 let currentScore = 0;
 let language = '';
-let topic = '';
 let myInterval = '';
+let topic = '';
+
 const usedQuestionIndexes = [];
 
 // Variables for HTML elements
 const answerColumns = document.getElementById('answer-columns');
 const answerOptions = document.querySelectorAll('.answer-option');
 const currentQuestion = document.getElementById('current-question');
+const finalScore = document.getElementById('final-score');
+const finalScoreDisplay = document.getElementById('final-score-display');
 const langColumns = document.getElementById('language-columns');
 const langIcons = document.querySelectorAll('.lang-icon');
 const langOptions = document.querySelectorAll('.lang-option');
+const playAgainBtn = document.getElementById('play-again-btn');
 const questionColumns = document.getElementById('question-columns');
 const quizScreen = document.getElementById('quiz-screen');
 const resetBtn = document.getElementById('reset-btn');
 const timer = document.getElementById('timer');
+const titleSubtitle = document.getElementById('title-subtitle');
 const topicColumns = document.getElementById('topic-columns');
 const topicIcons = document.querySelectorAll('.topic-icon');
 const topicOptions = document.querySelectorAll('.topic-option');
@@ -63,6 +68,10 @@ answerColumns.addEventListener('click', e => {
     setTimeout(resetOptionClasses, 1000);
     setTimeout(generateQuestion, 1000);
   }
+});
+
+playAgainBtn.addEventListener('click', () => {
+  resetQuiz();
 });
 
 resetBtn.addEventListener('click', () => {
@@ -232,5 +241,9 @@ const resetQuiz = function resetQuizProgress() {
 };
 
 const stopQuiz = function stopQuizWhenRoundEnds() {
-  console.log('end of quiz!')
-}
+  console.log('end of quiz!');
+  finalScoreDisplay.textContent = `Your Score is ${currentScore}`;
+  quizScreen.classList.toggle('is-hidden');
+  titleSubtitle.classList.toggle('is-hidden');
+  finalScore.classList.toggle('is-hidden');
+};
