@@ -5,6 +5,7 @@
 /* eslint-env browser */
 
 // Global variables
+let clickCounter = 0
 let correctAnswer = '';
 let currentScore = 0;
 let language = '';
@@ -57,6 +58,8 @@ startBtn.addEventListener('click', () => {
 
 answerColumns.addEventListener('click', e => {
   if (!e.target.matches('.answer-option')) return;
+  clickCounter += 1;
+  if (clickCounter !== 1) return;
   if (e.target.matches('.correct-answer')) {
     correctAnswerChosen(e);
     incrementScore();
@@ -67,6 +70,7 @@ answerColumns.addEventListener('click', e => {
     showCorrectAnswer();
     setTimeout(resetOptionClasses, 1000);
     setTimeout(generateQuestion, 1000);
+
   }
 });
 
@@ -132,6 +136,7 @@ const getRandomIndex = function getRandomQuestionIndex() {
 };
 
 const generateQuestion = function generateQuestionAndPossibleAnswers() {
+  clickCounter = 0;
   const randomIndex = getRandomIndex();
 
   const chosenQuestion = frenchAnimals[randomIndex];
@@ -190,6 +195,7 @@ const showCorrectAnswer = function showCorrectAnswerInGreen() {
 
 const resetOptionClasses = function resetOptionClassesAfterQ() {
   for (let i = 0; i < answerOptions.length; i += 1) {
+    //answerOptions[i].removeAttribute("disabled")
     if (answerOptions[i].classList.contains('is-success')) {
       answerOptions[i].classList.remove('correct-answer', 'is-success');
     } else answerOptions[i].classList.remove('is-danger');
