@@ -231,16 +231,21 @@ const resetAnswers = function resetAnswersToDefault() {
   }
 };
 
+const resetScore = function resetScoreToZero() {
+  currentScore = 0;
+  scoreDisplay.textContent = `Score: ${currentScore}`;
+}
+
 const resetQuiz = function resetQuizProgress() {
   stopTimer();
-  resetOptionClasses();
   resetAnswers();
+  resetOptionClasses();
+  resetScore();
   toggleLangOptions();
   toggleSelectedTopic();
   toggleTopics();
   toggleStartBtn();
   toggleQuizScreen();
-  currentScore = 0;
 };
 
 const stopQuiz = function stopQuizWhenRoundEnds() {
