@@ -5,14 +5,12 @@
 /* eslint-env browser */
 
 // Global variables
-let clickCounter = 0
+let clickCounter = 0;
 let correctAnswer = '';
 let currentScore = 0;
 let language = '';
 let myInterval = '';
 let topic = '';
-
-
 
 const usedQuestionIndexes = [];
 
@@ -72,7 +70,6 @@ answerColumns.addEventListener('click', e => {
     showCorrectAnswer();
     setTimeout(resetOptionClasses, 1000);
     setTimeout(generateQuestion, 1000);
-
   }
 });
 
@@ -196,7 +193,7 @@ const showCorrectAnswer = function showCorrectAnswerInGreen() {
 
 const resetOptionClasses = function resetOptionClassesAfterQ() {
   for (let i = 0; i < answerOptions.length; i += 1) {
-    //answerOptions[i].removeAttribute("disabled")
+    // answerOptions[i].removeAttribute("disabled")
     if (answerOptions[i].classList.contains('is-success')) {
       answerOptions[i].classList.remove('correct-answer', 'is-success');
     } else answerOptions[i].classList.remove('is-danger');
@@ -241,7 +238,7 @@ const resetAnswers = function resetAnswersToDefault() {
 const resetScore = function resetScoreToZero() {
   currentScore = 0;
   scoreDisplay.textContent = `Score: ${currentScore}`;
-}
+};
 
 const resetQuiz = function resetQuizProgress() {
   stopTimer();
