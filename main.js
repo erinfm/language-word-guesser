@@ -12,6 +12,8 @@ let language = '';
 let myInterval = '';
 let topic = '';
 
+
+
 const usedQuestionIndexes = [];
 
 // Variables for HTML elements
@@ -138,11 +140,10 @@ const getRandomIndex = function getRandomQuestionIndex() {
 const generateQuestion = function generateQuestionAndPossibleAnswers() {
   clickCounter = 0;
   const randomIndex = getRandomIndex();
-
   const chosenQuestion = frenchAnimals[randomIndex];
 
-  correctAnswer = Object.keys(chosenQuestion)[0];
-  currentQuestion.textContent = Object.values(chosenQuestion)[0];
+  correctAnswer = Object.values(chosenQuestion)[0];
+  currentQuestion.textContent = Object.values(chosenQuestion)[1];
 
   // Choose one of the three answer columns at random and display correct answer inside
   const correctAnswerColumn = document.getElementById(
@@ -166,7 +167,7 @@ const generateQuestion = function generateQuestionAndPossibleAnswers() {
       if (indexForIncorrectOption >= randomIndex) indexForIncorrectOption += 1;
       const incorrectAnswer = frenchAnimals[indexForIncorrectOption];
 
-      answerOptions[i].textContent = Object.keys(incorrectAnswer)[0];
+      answerOptions[i].textContent = Object.values(incorrectAnswer)[0];
     }
   }
 };
@@ -256,7 +257,7 @@ const resetQuiz = function resetQuizProgress() {
 
 const stopQuiz = function stopQuizWhenRoundEnds() {
   console.log('end of quiz!');
-  finalScoreDisplay.textContent = `Your Score is ${currentScore}`;
+  finalScoreDisplay.textContent = `Your Score is: ${currentScore}`;
   quizScreen.classList.toggle('is-hidden');
   titleSubtitle.classList.toggle('is-hidden');
   finalScore.classList.toggle('is-hidden');
