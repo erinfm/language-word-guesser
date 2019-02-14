@@ -13,7 +13,6 @@ let language = '';
 let myInterval = '';
 let topic = '';
 
-
 const usedQuestionIndexes = [];
 
 // Variables for HTML elements
@@ -55,6 +54,7 @@ topicColumns.addEventListener('click', e => {
 
 startBtn.addEventListener('click', () => {
   toggleQuizScreen();
+  resetOptionClasses();
   generateQuestion();
   startTimer();
 });
@@ -205,16 +205,19 @@ const showCorrectAnswer = function showCorrectAnswerInGreen() {
   for (let i = 0; i < answerOptions.length; i += 1) {
     if (answerOptions[i].classList.contains('correct-answer')) {
       answerOptions[i].classList.add('is-success');
+      return;
     }
   }
 };
 
 const resetOptionClasses = function resetOptionClassesAfterQ() {
   for (let i = 0; i < answerOptions.length; i += 1) {
-    // answerOptions[i].removeAttribute("disabled")
-    if (answerOptions[i].classList.contains('is-success')) {
-      answerOptions[i].classList.remove('correct-answer', 'is-success');
-    } else answerOptions[i].classList.remove('is-danger');
+    if (answerOptions[i].classList.contains('is-success'))
+      answerOptions[i].classList.remove('is-success');
+    if (answerOptions[i].classList.contains('correct-answer'))
+      answerOptions[i].classList.remove('correct-answer');
+    if (answerOptions[i].classList.contains('is-danger'))
+      answerOptions[i].classList.remove('is-danger');
   }
 };
 
@@ -272,7 +275,7 @@ const resetQuiz = function resetQuizProgress() {
 
 const stopQuiz = function stopQuizWhenRoundEnds() {
   console.log('end of quiz!');
-  finalScoreDisplay.textContent = `Your Score is: ${currentScore}`;
+  finalScoreDisplay.textContent = `Your score: ${currentScore}`;
   quizScreen.classList.toggle('is-hidden');
   titleSubtitle.classList.toggle('is-hidden');
   finalScore.classList.toggle('is-hidden');

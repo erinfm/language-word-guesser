@@ -54,8 +54,6 @@ const frenchAnimalsList = [
   { en: 'Zebra', fr: 'Le zèbre' }
 ];
 
-
-
 const germanAnimalsList = [
   { en: 'Ant', de: 'Die Ameise' },
   { en: 'Bear', de: 'Der Bär' },
