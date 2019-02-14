@@ -8,9 +8,11 @@
 let clickCounter = 0;
 let correctAnswer = '';
 let currentScore = 0;
+let langTopicCombination = '';
 let language = '';
 let myInterval = '';
 let topic = '';
+
 
 const usedQuestionIndexes = [];
 
@@ -47,6 +49,7 @@ topicColumns.addEventListener('click', e => {
   if (!e.target.matches('.topic-button, .topic-button *')) return;
   topic = e.target.closest('.topic-option').id;
   toggleSelectedTopic();
+  setLangTopicCombo();
   toggleStartBtn();
 });
 
@@ -113,6 +116,21 @@ const toggleSelectedTopic = function toggleSelectedTopicDisplay() {
   }
 };
 
+const setLangTopicCombo = function setLanguageTopicCombo() {
+  if (language === 'french') {
+    if (topic === 'Animals') langTopicCombination = frenchAnimalsList;
+    else langTopicCombination = frenchBodyList;
+  }
+  if (language === 'german') {
+    if (topic === 'Animals') langTopicCombination = germanAnimalsList;
+    else langTopicCombination = germanBodyList;
+  }
+  if (language === 'italian') {
+    if (topic === 'Animals') langTopicCombination = italianAnimalsList;
+    else langTopicCombination = italianBodyList;
+  }
+};
+
 const toggleStartBtn = function displayStartBtnBelowChoices() {
   startBtn.classList.toggle('is-hidden');
 };
@@ -124,7 +142,7 @@ const toggleQuizScreen = function changeToQuizScreen() {
 
 const getRandomIndex = function getRandomQuestionIndex() {
   // Choose a word pair from topic array, check that it has not been used already during the round, and display the target word on screen
-  const indexForQuestion = Math.floor(Math.random() * frenchAnimals.length);
+  const indexForQuestion = Math.floor(Math.random() * langTopicCombination.length);
 
   // Repeate function to choose another value if chosen value has already been used
   if (usedQuestionIndexes.includes(indexForQuestion)) return getRandomIndex();
@@ -137,7 +155,7 @@ const getRandomIndex = function getRandomQuestionIndex() {
 const generateQuestion = function generateQuestionAndPossibleAnswers() {
   clickCounter = 0;
   const randomIndex = getRandomIndex();
-  const chosenQuestion = frenchAnimals[randomIndex];
+  const chosenQuestion = langTopicCombination[randomIndex];
 
   correctAnswer = Object.values(chosenQuestion)[0];
   currentQuestion.textContent = Object.values(chosenQuestion)[1];
@@ -154,7 +172,7 @@ const generateQuestion = function generateQuestionAndPossibleAnswers() {
   for (let i = 0; i < answerOptions.length; i += 1) {
     if (!answerOptions[i].classList.contains('correct-answer')) {
       let indexForIncorrectOption = Math.floor(
-        Math.random() * (frenchAnimals.length - 2)
+        Math.random() * (langTopicCombination.length - 2)
       );
       // Ensure different incorrect answer shows in each column
       if (indexArray.includes(indexForIncorrectOption)) indexForIncorrectOption += 1;
@@ -162,7 +180,7 @@ const generateQuestion = function generateQuestionAndPossibleAnswers() {
 
       // Ensures that correct answer cannot appear again among options
       if (indexForIncorrectOption >= randomIndex) indexForIncorrectOption += 1;
-      const incorrectAnswer = frenchAnimals[indexForIncorrectOption];
+      const incorrectAnswer = langTopicCombination[indexForIncorrectOption];
 
       answerOptions[i].textContent = Object.values(incorrectAnswer)[0];
     }

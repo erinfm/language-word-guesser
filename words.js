@@ -1,4 +1,4 @@
-const frenchAnimals = [
+const frenchAnimalsList = [
   { en: 'Ant', fr: 'La fourmi' },
   { en: 'Bear', fr: "L'ours" },
   { en: 'Bee', fr: 'La abeille' },
@@ -56,7 +56,7 @@ const frenchAnimals = [
 
 
 
-const germanAnimals = [
+const germanAnimalsList = [
   { en: 'Ant', de: 'Die Ameise' },
   { en: 'Bear', de: 'Der Bär' },
   { en: 'Bee', de: 'Die Biene' },
@@ -112,7 +112,7 @@ const germanAnimals = [
   { en: 'Zebra', de: 'Das Zebra' }
 ];
 
-const italianAnimals = [
+const italianAnimalsList = [
   { en: 'Ant', it: 'La formica' },
   { en: 'Bear', it: "L'orso" },
   { en: 'Bee', it: "L'ape" },
@@ -168,7 +168,7 @@ const italianAnimals = [
   { en: 'Zebra', it: 'La zebra' }
 ];
 
-const frenchBody = [
+const frenchBodyList = [
   { en: 'Ankle', fr: 'La cheville' },
   { en: 'Arm', fr: 'Le bras' },
   { en: 'Back', fr: 'Le dos' },
@@ -218,7 +218,7 @@ const frenchBody = [
   { en: 'Wrist', fr: 'Le poignet' }
 ];
 
-const italianBody = [
+const italianBodyList = [
   { en: 'Ankle', it: 'La caviglia' },
   { en: 'Arm', it: 'Il braccio' },
   { en: 'Back', it: 'La schiena' },
@@ -268,7 +268,7 @@ const italianBody = [
   { en: 'Wrist', it: 'Il polso' }
 ];
 
-const GermanBody = [
+const germanBodyList = [
   { en: 'Ankle', de: 'Der Knöchel' },
   { en: 'Arm', de: 'Der Arm' },
   { en: 'Back', de: 'Der Rücken' },
