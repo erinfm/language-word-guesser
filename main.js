@@ -65,13 +65,13 @@ answerColumns.addEventListener('click', e => {
   if (e.target.matches('.correct-answer')) {
     correctAnswerChosen(e);
     incrementScore();
-    setTimeout(resetOptionClasses, 1000);
-    setTimeout(generateQuestion, 1000);
+    setTimeout(resetOptionClasses, 900);
+    setTimeout(generateQuestion, 900);
   } else {
     incorrectAnswerChosen(e);
     showCorrectAnswer();
-    setTimeout(resetOptionClasses, 1000);
-    setTimeout(generateQuestion, 1000);
+    setTimeout(resetOptionClasses, 900);
+    setTimeout(generateQuestion, 900);
   }
 });
 
