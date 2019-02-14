@@ -122,8 +122,8 @@ $RECYCLE.BIN/
 *.sass.map
 *.scss.map
 
-# ignore CSS files #
-**/*.css
+# # ignore CSS files #
+# **/*.css
 
 ## Others
 .vscode/launch.json
