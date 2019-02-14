@@ -77,7 +77,6 @@ answerColumns.addEventListener('click', e => {
 
 playAgainBtn.addEventListener('click', () => {
   quizScreen.classList.toggle('is-hidden');
-  titleSubtitle.classList.toggle('is-hidden');
   finalScore.classList.toggle('is-hidden');
   resetQuiz();
 });
@@ -135,6 +134,7 @@ const toggleStartBtn = function displayStartBtnBelowChoices() {
 };
 
 const toggleQuizScreen = function changeToQuizScreen() {
+  titleSubtitle.classList.toggle('is-hidden');
   welcomeScreen.classList.toggle('is-hidden');
   quizScreen.classList.toggle('is-hidden');
 };
@@ -276,6 +276,5 @@ const stopQuiz = function stopQuizWhenRoundEnds() {
   console.log('end of quiz!');
   finalScoreDisplay.textContent = `Your score: ${currentScore}`;
   quizScreen.classList.toggle('is-hidden');
-  titleSubtitle.classList.toggle('is-hidden');
   finalScore.classList.toggle('is-hidden');
 };

@@ -210,7 +210,7 @@ const frenchBodyList = [
   { en: 'Teeth', fr: 'Les dents' },
   { en: 'Throat', fr: 'La gorge' },
   { en: 'Thumb', fr: 'Le pouce' },
-  { en: 'Toe', fr: 'Le doight de pied' },
+  { en: 'Toe', fr: 'Le doigt de pied' },
   { en: 'Tongue', fr: 'La langue' },
   { en: 'Waist', fr: 'La taille' },
   { en: 'Wrist', fr: 'Le poignet' }
