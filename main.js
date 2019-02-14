@@ -25,7 +25,6 @@ const langColumns = document.getElementById('language-columns');
 const langIcons = document.querySelectorAll('.lang-icon');
 const langOptions = document.querySelectorAll('.lang-option');
 const playAgainBtn = document.getElementById('play-again-btn');
-const questionColumns = document.getElementById('question-columns');
 const quizScreen = document.getElementById('quiz-screen');
 const resetBtn = document.getElementById('reset-btn');
 const timer = document.getElementById('timer');
