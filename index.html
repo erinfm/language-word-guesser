@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Vocab Quiz</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
   <link rel="stylesheet" href="css/mystyles.css">
   <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
   <script defer src="words.js"></script>
@@ -16,7 +17,7 @@
   <section class="hero is-fullheight is-light has-background-default">
     <div class="hero-body">
       <div class="container">
-        <div id="title-subtitle">
+        <div id="title-subtitle" class="animated fadeIn">
           <h1 id="title" class="title is-3 is-size-4-mobile">
             Vocab Quiz
           </h1>
@@ -27,8 +28,8 @@
           <p class="is-invisible">.</p>
         </div>
 
-        <div id="welcome-screen">
-          <div id="language-columns" class="columns">
+        <div id="welcome-screen" class="animated fadeIn">
+          <div id="language-columns" class="columns animated fadeIn">
             <div id="french" class="column lang-option">
               <a class="button lang-button is-primary is-medium is-fullwidth">
                 <span>French</span>
@@ -55,7 +56,7 @@
             </div>
           </div>
 
-          <div id="topic-columns" class="columns is-hidden">
+          <div id="topic-columns" class="columns is-hidden animated fadeIn">
             <div id="Body" class="column topic-option">
               <a class="button topic-button is-info is-medium is-fullwidth">
                 <span>Body</span>
@@ -74,10 +75,10 @@
             </div>
           </div>
           <p class="is-invisible">.</p>
-          <a id="start-btn" class="button is-large is-fullwidth is-link is-hidden">Start</a>
+          <a id="start-btn" class="button is-large is-fullwidth is-link is-hidden animated fadeIn">Start</a>
         </div>
 
-        <div id="quiz-screen" class="is-hidden">
+        <div id="quiz-screen" class="is-hidden animated fadeIn">
           <p class="is-invisible is-hidden-mobile">.</p>
           <p class="is-invisible is-hidden-mobile">.</p>
 
@@ -131,7 +132,7 @@
           </nav>
         </div>
 
-        <section id="final-score" class="hero is-hidden">
+        <section id="final-score" class="hero is-hidden animated fadeIn">
           <div class="hero-body">
             <div class="container has-text-centered">
               <h1 id="final-score-display" class="title is-2">

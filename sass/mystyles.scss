@@ -26,12 +26,7 @@ $background-neutral: #F2F2F2;
   background: linear-gradient(to bottom right,#F2F2F2, #F4F4F4)
 }
 
-// Permits buttons with left-aligned text
-.button.has-text-left {
-  justify-content: flex-start;
-}
-
-// Gives timer a fixed width
+// Gives timer and score a fixed width
 #timer {
   min-width: 234px;
 }
@@ -40,7 +35,18 @@ $background-neutral: #F2F2F2;
   min-width: 124px;
 }
 
-
-// Import only what you need from Bulma
-    //To edit at project end
-    @import "../node_modules/bulma/bulma.sass";
+// Sets length of fade-in animations
+.animated {
+  animation-duration: 0.5s;
+}
+// Bulma files used
+    @import "../node_modules/bulma/sass/utilities/_all.sass";
+    @import "../node_modules/bulma/sass/base/_all.sass";
+    @import "../node_modules/bulma/sass/elements/button.sass";
+    @import "../node_modules/bulma/sass/elements/container.sass";
+    @import "../node_modules/bulma/sass/elements/title.sass";
+    @import "../node_modules/bulma/sass/grid/columns.sass";
+    @import "../node_modules/bulma/sass/components/navbar.sass";
+    @import "../node_modules/bulma/sass/layout/hero.sass";
+    @import "../node_modules/bulma/sass/layout/section.sass";
+    @import "../node_modules/bulma/sass/components/level.sass";
