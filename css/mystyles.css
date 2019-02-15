@@ -11,6 +11,9 @@
 .animated {
   animation-duration: 0.5s; }
 
+.button.has-text-left {
+  justify-content: flex-start; }
+
 @keyframes spinAround {
   from {
     transform: rotate(0deg); }

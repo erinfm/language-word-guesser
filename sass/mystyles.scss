@@ -39,6 +39,12 @@ $background-neutral: #F2F2F2;
 .animated {
   animation-duration: 0.5s;
 }
+
+// Aligns score button text left
+.button.has-text-left {
+  justify-content: flex-start;
+}
+
 // Bulma files used
     @import "../node_modules/bulma/sass/utilities/_all.sass";
     @import "../node_modules/bulma/sass/base/_all.sass";
