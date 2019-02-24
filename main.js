@@ -131,6 +131,7 @@ const setLangTopicCombo = function setLanguageTopicCombo() {
 
 const toggleStartBtn = function displayStartBtnBelowChoices() {
   startBtn.classList.toggle('is-hidden');
+  startBtn.focus();
 };
 
 const toggleQuizScreen = function changeToQuizScreen() {
